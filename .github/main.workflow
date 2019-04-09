@@ -34,5 +34,5 @@ action "DotNet Publish" {
 
 action "Shell" {
   uses = "actions/bin/sh@master"
-  args = ["echo", "$GITHUB_REPOSITORY"]
+  args = ["echo $GITHUB_REPOSITORY"]
 }
