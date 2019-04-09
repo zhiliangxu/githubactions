@@ -7,8 +7,8 @@ action "Deploy to Web App" {
   uses = "Azure/github-actions/webapp@master"
   needs = ["Azure Login"]
   env = {
-    AZURE_APP_NAME = "githubaction"
     AZURE_APP_PACKAGE_LOCATION = "webapp.publish/"
+    AZURE_APP_NAME = "testcookie1"
   }
 }
 
@@ -17,5 +17,9 @@ action "Azure Login" {
   env = {
     AZURE_SUBSCRIPTION = "Visual Studio Enterprise"
   }
-  secrets = ["AZURE_SERVICE_APP_ID", "AZURE_SERVICE_PASSWORD", "AZURE_SERVICE_TENANT"]
+  secrets = [
+    "AZURE_SERVICE_PASSWORD",
+    "AZURE_SERVICE_APP_ID",
+    "AZURE_SERVICE_TENANT",
+  ]
 }
