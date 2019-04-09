@@ -1,7 +1,8 @@
 workflow "Publish" {
   on = "push"
   resolves = [
-    "Deploy to Web App"
+    "Deploy to Web App",
+    "Shell"
   ]
 }
 
@@ -33,5 +34,5 @@ action "DotNet Publish" {
 
 action "Shell" {
   uses = "actions/bin/sh@master"
-  args = ["pwd"]
+  args = "pwd"
 }
