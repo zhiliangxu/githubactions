@@ -1,9 +1,13 @@
 workflow "Publish" {
   on = "push"
-  resolves = ["Post"]
+  resolves = ["new-action"]
 }
 
-action "Post" {
-  uses = "swinton/httpie.action@master"
-  args = ["POST", "httpbin.org/anything", "hello=world"]
+action "Deploy to Web App" {
+  uses = "Azure/github-actions/webapp@master"
+  needs = ["Azure Login"]
+  env = {
+    AZURE_APP_NAME = "githubaction"
+    AZURE_APP_PACKAGE_LOCATION = "webapp.publish/"
+  }
 }
