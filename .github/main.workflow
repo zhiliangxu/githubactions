@@ -4,6 +4,6 @@ workflow "Publish" {
 }
 
 action "Post" {
-  uses = "swinton/httpie.action@8ab0a0e926d091e0444fcacd5eb679d2e2d4ab3d"
-  args = "[\"POST\", \"httpbin.org/anything\", \"hello=world\"]"
+  uses = "swinton/httpie.action@master"
+  args = ["POST", "httpbin.org/anything", "hello=world"]
 }
