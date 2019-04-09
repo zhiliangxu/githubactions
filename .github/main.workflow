@@ -27,6 +27,6 @@ action "Azure Login" {
 }
 
 action "DotNet Publish" {
-  uses = "zhiliangxu/github-actions/dotnetcore-cli@master"
+  uses = "Azure/github-actions/dotnetcore-cli@master"
   args = ["publish", "-c", "Release", "-o", "../publish", "webapp"]
 }
