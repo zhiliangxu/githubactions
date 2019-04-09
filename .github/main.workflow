@@ -1,6 +1,6 @@
 workflow "Publish" {
   on = "push"
-  resolves = ["new-action"]
+  resolves = ["Deploy to Web App"]
 }
 
 action "Deploy to Web App" {
@@ -10,4 +10,12 @@ action "Deploy to Web App" {
     AZURE_APP_NAME = "githubaction"
     AZURE_APP_PACKAGE_LOCATION = "webapp.publish/"
   }
+}
+
+action "Azure Login" {
+  uses = "Azure/github-actions/login@master"
+  env = {
+    AZURE_SUBSCRIPTION = "Visual Studio Enterprise"
+  }
+  secrets = ["AZURE_SERVICE_APP_ID", "AZURE_SERVICE_PASSWORD", "AZURE_SERVICE_TENANT"]
 }
