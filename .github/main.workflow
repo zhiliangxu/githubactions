@@ -1,8 +1,7 @@
 workflow "Publish" {
   on = "push"
   resolves = [
-    "Deploy to Web App",
-    "Shell"
+    "Deploy to Web App"
   ]
 }
 
@@ -30,9 +29,4 @@ action "Azure Login" {
 action "DotNet Publish" {
   uses = "Azure/github-actions/dotnetcore-cli@master"
   args = ["publish", "-c", "Release", "-o", "../publish", "webapp"]
-}
-
-action "Shell" {
-  uses = "actions/bin/sh@master"
-  args = ["echo $GITHUB_REPOSITORY"]
 }
