@@ -31,11 +31,6 @@ action "DotNet Publish" {
   args = ["publish", "-c", "Release", "-o", "../publish", "webapp"]
 }
 
-workflow "Test" {
-  on = "push"
-  resolves = ["Read TEST_VALUE"]
-}
-
 action "Read GITHUB_REPOSITORY" {
   uses = "actions/bin/sh@master"
   runs = "TEST_VALUE=$GITHUB_REPOSITORY"
